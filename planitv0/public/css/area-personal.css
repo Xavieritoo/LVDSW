@@ -1,0 +1,43 @@
+#modalCambiarPassword .modal-content {
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 18px 36px rgba(15, 23, 42, 0.16);
+    overflow: hidden;
+}
+
+#modalCambiarPassword .modal-header {
+    border-bottom: 0;
+    padding: 1rem 1.25rem 0.75rem;
+    background: linear-gradient(180deg, #f6f8ff 0%, #ffffff 100%);
+}
+
+#modalCambiarPassword .modal-body {
+    padding: 1.1rem 1.25rem 0.5rem;
+}
+
+#modalCambiarPassword .modal-footer {
+    border-top: 0;
+    padding: 0.85rem 1.25rem 1.15rem;
+}
+
+#modalCambiarPassword .input-group .form-control,
+#modalCambiarPassword .input-group .btn {
+    border-color: #d5deeb;
+}
+
+#modalCambiarPassword .toggle-pass {
+    background: #f8faff;
+    color: #4a5f85;
+}
+
+#modalCambiarPassword .toggle-pass:hover {
+    background: #eef3ff;
+    color: #2d3f63;
+}
+
+.password-rules {
+    background: #f7f9ff;
+    border: 1px solid #dbe5f5;
+    border-radius: 12px;
+    padding: 0.65rem 0.85rem;
+}

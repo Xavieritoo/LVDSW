@@ -1,0 +1,647 @@
+.flights-shell {
+    --fl-primary: #5170ff;
+    --fl-primary-dark: #3f5de0;
+    --fl-border: #d9e2f7;
+    --fl-surface: #ffffff;
+    --fl-soft: #f5f8ff;
+    --fl-text: #1f2d45;
+    --fl-muted: #5b6f94;
+    color: var(--fl-text);
+    max-width: 1200px;
+    margin: 1.25rem auto 0;
+    padding: 0 0.5rem;
+}
+
+.flights-shell .page-title {
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 800;
+    color: #5170ff;
+    background: linear-gradient(135deg, #f5f8ff 0%, #eaf0ff 100%);
+    border: 1px solid var(--fl-border);
+    border-radius: 14px;
+    padding: 0.8rem 1rem;
+    box-shadow: 0 10px 24px rgba(81, 112, 255, 0.1);
+}
+
+.flights-shell .hero-banner {
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e8ff 50%, #f5f8ff 100%);
+    padding: 24px 18px;
+    border-radius: 16px;
+    margin-bottom: 26px;
+    border: 1px solid #ccd5f8;
+    box-shadow: 0 14px 30px rgba(81, 112, 255, 0.1);
+}
+
+.flights-shell .hero-title {
+    color: #5170ff;
+    background: #ffffff;
+    border: 1px solid #cdd6f9;
+    padding: 10px 14px;
+    font-size: 1.45rem;
+    font-weight: 800;
+    margin-bottom: 18px;
+    display: inline-block;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(81, 112, 255, 0.12);
+}
+
+.flights-shell .search-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.flights-shell .search-section {
+    background: var(--fl-surface);
+    border-radius: 14px;
+    padding: 18px;
+    box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+    border: 1px solid var(--fl-border);
+}
+
+.flights-shell .search-section:hover {
+    box-shadow: 0 16px 30px rgba(81, 112, 255, 0.12);
+    border-color: #b8c9fa;
+}
+
+.flights-shell .search-section h3 {
+    margin-bottom: 14px;
+    font-size: 0.96rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+    color: #5170ff;
+    text-transform: uppercase;
+}
+
+.flights-shell .search-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.flights-shell .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.flights-shell .input-group label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #5170ff;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.flights-shell .input-group input,
+.flights-shell .input-group select {
+    border: 1px solid #d2daf6;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 0.94rem;
+    width: 100%;
+    color: #1f2d45;
+    background: #ffffff;
+}
+
+.flights-shell .input-group input:focus,
+.flights-shell .input-group select:focus {
+    outline: none;
+    border-color: #5170ff;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(81, 112, 255, 0.16);
+}
+
+.flights-shell .btn-search {
+    width: fit-content;
+    background: linear-gradient(90deg, #5170ff 0%, #4868e8 100%);
+    color: #ffffff;
+    border: 1px solid #4868e8;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.flights-shell .btn-search:hover {
+    background: #3f5de8;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgba(72, 104, 232, 0.24);
+}
+
+.flights-shell .results-section {
+    margin-top: 24px;
+}
+
+.flights-shell .results-header h2 {
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: #5170ff;
+    font-weight: 800;
+}
+
+.flights-shell .results-header p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--fl-muted);
+    font-weight: 600;
+}
+
+.flights-shell .results-header {
+    border: 1px solid var(--fl-border);
+    border-radius: 16px;
+    background: linear-gradient(135deg, #f5f8ff 0%, #eaf0ff 100%);
+    box-shadow: 0 12px 30px rgba(81, 112, 255, 0.1);
+    padding: 1rem 1.1rem;
+    margin-bottom: 0.85rem;
+}
+
+.flights-shell .list-headers {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1.5fr;
+    gap: 10px;
+    padding: 12px 16px 12px 22px;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    background: #f4f8ff;
+    border: 1px solid var(--fl-border);
+    color: #5170ff;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.flights-shell .list-headers > div:nth-child(2) {
+    text-align: center;
+}
+
+.flights-shell .list-headers > div:nth-child(3),
+.flights-shell .list-headers > div:nth-child(4) {
+    text-align: center;
+}
+
+.flights-shell .list-headers > div:nth-child(5) {
+    text-align: center;
+}
+
+.flights-shell .flight-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr 1fr 1.5fr;
+    gap: 12px;
+    align-items: center;
+    background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);
+    border-radius: 14px;
+    border: 1px solid var(--fl-border);
+    padding: 12px 16px 12px 22px;
+    margin-bottom: 12px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.flights-shell .flight-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 28px rgba(17, 24, 39, 0.1);
+}
+
+.flights-shell .flight-card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 16%;
+    bottom: 16%;
+    width: 4px;
+    background-color: #ffcc00;
+    border-radius: 0 8px 8px 0;
+}
+
+.flights-shell .col-flight-num {
+    font-weight: 800;
+    color: #1f2d45;
+}
+
+.flights-shell .col-flight-num span {
+    display: block;
+    font-weight: 600;
+    font-size: 0.82rem;
+    color: #62759a;
+    margin-top: 4px;
+}
+
+.flights-shell .col-route {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.flights-shell .route-point {
+    text-align: center;
+}
+
+.flights-shell .route-point strong {
+    display: block;
+    font-size: 1.05rem;
+    color: #5170ff;
+}
+
+.flights-shell .route-point span {
+    display: block;
+    color: #64748b;
+    font-size: 0.82rem;
+    margin-top: 2px;
+}
+
+.flights-shell .route-line {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    color: #c4cfe6;
+    font-weight: 800;
+}
+
+.flights-shell .route-line hr {
+    flex: 1;
+    border: 0;
+    border-top: 1px dashed #c6d1ea;
+    margin: 0 8px;
+}
+
+.flights-shell .col-time {
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 800;
+    color: #1f2d45;
+}
+
+.flights-shell .flight-card > div:last-child {
+    display: flex;
+    justify-content: center;
+}
+
+.flights-shell .status-badge,
+.flight-detail-shell .badge-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.82rem;
+    letter-spacing: 0.01em;
+    min-width: 120px;
+    text-transform: capitalize;
+}
+
+.flights-shell .status-programado,
+.flight-detail-shell .badge-programado { background-color: #2eaa65; color: #ffffff; }
+.flights-shell .status-embarcando,
+.flight-detail-shell .badge-embarcando { background-color: #2d8eea; color: #ffffff; }
+.flights-shell .status-en_vuelo,
+.flight-detail-shell .badge-en_vuelo { background-color: #5170ff; color: #ffffff; }
+.flights-shell .status-retrasado,
+.flight-detail-shell .badge-retrasado { background-color: #f5be3a; color: #3f3000; }
+.flights-shell .status-aterrizado,
+.flight-detail-shell .badge-aterrizado { background-color: #66758f; color: #ffffff; }
+.flights-shell .status-cancelado,
+.flight-detail-shell .badge-cancelado { background-color: #c53d4f; color: #ffffff; }
+
+.flights-shell .sin-vuelos {
+    padding: 26px;
+    border-radius: 14px;
+    background: #f8fbff;
+    border: 1px solid #dde6f6;
+    color: #4c5f82;
+    text-align: center;
+    margin-top: 16px;
+    box-shadow: 0 10px 22px rgba(17, 24, 39, 0.06);
+}
+
+.flight-detail-shell .detail-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    border: 1px solid #dde6f6;
+    box-shadow: 0 14px 30px rgba(17, 24, 39, 0.08);
+}
+
+.flight-detail-shell .detail-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.flight-detail-shell .header-title {
+    font-size: 1.7rem;
+    font-weight: 800;
+    margin: 0;
+    color: #1d3f93;
+}
+
+.flight-detail-shell .flight-data {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.flight-detail-shell .flight-section {
+    background: #f8fbff;
+    border-radius: 12px;
+    padding: 16px;
+    border: 1px solid #dce5f8;
+}
+
+.flight-detail-shell .flight-section h3 {
+    font-size: 0.95rem;
+    margin-bottom: 12px;
+    color: #24468d;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.flight-detail-shell .flight-section p {
+    margin: 0 0 10px 0;
+    color: #4f6182;
+    line-height: 1.45;
+}
+
+.flight-detail-shell .flight-section strong {
+    color: #1f2d45;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.flight-detail-shell .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #5170ff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.flight-detail-shell .back-link:hover {
+    color: #3f5de0;
+    text-decoration: underline;
+}
+
+@media (max-width: 992px) {
+    .flights-shell .search-container,
+    .flights-shell .list-headers,
+    .flights-shell .flight-card,
+    .flight-detail-shell .flight-data {
+        grid-template-columns: 1fr;
+    }
+
+    .flights-shell .flight-card::before {
+        display: none;
+    }
+
+    .modal-ciudades-contenido {
+        width: 95%;
+        max-height: 85vh;
+    }
+}
+
+/* Botón selector de ciudad (estilo modal) */
+.flights-shell .btn-campo-vuelo {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+    border: 1px solid #d2daf6;
+    border-radius: 10px;
+    background: #ffffff;
+    color: #1f2d45;
+    font-size: 0.94rem;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.flights-shell .btn-campo-vuelo:hover {
+    border-color: var(--fl-primary);
+    box-shadow: 0 0 0 3px rgba(69, 99, 229, 0.14);
+}
+
+/* Modal ciudades */
+.modal-ciudades {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-ciudades.activo {
+    display: flex;
+}
+
+.modal-ciudades-contenido {
+    background: #ffffff;
+    border-radius: 14px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 500px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #d8e3ff;
+    box-shadow: 0 20px 42px rgba(17, 24, 39, 0.2);
+}
+
+.modal-ciudades-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid #e2e9f9;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #f6f9ff;
+}
+
+.modal-ciudades-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.modal-ciudades-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #999;
+}
+
+.modal-ciudades-busqueda {
+    padding: 15px 20px;
+    border-bottom: 1px solid #e2e9f9;
+}
+
+.modal-ciudades-busqueda input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #d2ddf6;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.modal-ciudades-lista {
+    overflow-y: auto;
+    flex: 1;
+}
+
+.ciudad-item {
+    padding: 12px 20px;
+    border-bottom: 1px solid #edf2fc;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.ciudad-item:hover {
+    background: #f5f8ff;
+}
+
+.ciudad-item strong {
+    display: block;
+    color: #333;
+}
+
+.ciudad-item small {
+    color: #999;
+    font-size: 12px;
+}
+
+/* Calendario de vuelos */
+.calendario-vuelos {
+    background: #ffffff;
+    border: 1px solid #dce5f8;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 12px 26px rgba(17, 24, 39, 0.06);
+}
+
+.calendario-header {
+    margin-bottom: 16px;
+}
+
+.calendario-header h2 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--fl-text);
+    margin: 0 0 4px 0;
+}
+
+.calendario-header .cal-mes-nombre {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4a6cf7;
+    margin: 6px 0 8px 0;
+}
+
+.calendario-header p {
+    font-size: 0.9rem;
+    color: #7a8bb5;
+    margin: 0;
+}
+
+.flights-shell .cal-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #7a8bb5;
+    margin-bottom: 4px;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.flights-shell .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+    margin-top: 4px;
+}
+
+.flights-shell .cal-celda {
+    min-height: 68px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 6px 4px;
+    transition: all 0.2s;
+}
+
+.flights-shell .cal-celda.vacia {
+    background: transparent;
+}
+
+.flights-shell .cal-celda.pasado {
+    background: #f5f5f5;
+    opacity: 0.5;
+}
+
+.flights-shell .cal-celda.sin-vuelo {
+    background: #fafafa;
+}
+
+.flights-shell .cal-celda.seleccionable {
+    background: #eef3ff;
+    cursor: pointer;
+    border: 1px solid #d5dff3;
+}
+
+.flights-shell .cal-celda.seleccionable:hover {
+    background: #dbe6ff;
+    border-color: var(--fl-primary);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(69, 99, 229, 0.15);
+}
+
+.flights-shell .cal-celda.seleccionado {
+    background: var(--fl-primary);
+    border-color: var(--fl-primary);
+    color: white;
+}
+
+.flights-shell .cal-celda.seleccionado .cal-dia,
+.flights-shell .cal-celda.seleccionado .cal-vuelos {
+    color: white;
+}
+
+.flights-shell .cal-dia {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--fl-text);
+}
+
+.flights-shell .cal-vuelos {
+    font-size: 0.7rem;
+    color: #5170ff;
+    font-weight: 600;
+    margin-top: 2px;
+}
+
+.flights-shell .cal-sin {
+    font-size: 0.65rem;
+    color: #bbb;
+    margin-top: 2px;
+}

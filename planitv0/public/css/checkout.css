@@ -1,0 +1,251 @@
+/* ===== Estilos compartidos del proceso de compra ===== */
+
+/* -- Stepper / indicador de pasos -- */
+.checkout-stepper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 1.5rem;
+    padding: 1rem 0.5rem;
+    background: linear-gradient(135deg, #f7faff 0%, #edf3ff 100%);
+    border: 1px solid #dbe3ff;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(69, 99, 229, 0.07);
+    overflow-x: auto;
+}
+
+.stepper-step {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 0.4rem 0.65rem;
+    border-radius: 10px;
+    transition: background 0.2s ease;
+    color: #8a9bc2;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.stepper-step:hover {
+    background: rgba(69, 99, 229, 0.06);
+    color: #4563e5;
+    text-decoration: none;
+}
+
+.stepper-step .stepper-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #dbe3ff;
+    color: #6b82c7;
+    font-weight: 800;
+    font-size: 0.78rem;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.stepper-step .stepper-label {
+    display: inline-block;
+}
+
+.stepper-step.active {
+    color: #4563e5;
+    font-weight: 800;
+}
+
+.stepper-step.active .stepper-number {
+    background: #4563e5;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(69, 99, 229, 0.35);
+}
+
+.stepper-step.completed {
+    color: #1e885a;
+}
+
+.stepper-step.completed .stepper-number {
+    background: #d1fae5;
+    color: #15803d;
+}
+
+.stepper-divider {
+    width: 28px;
+    height: 2px;
+    background: #c9d5f0;
+    flex-shrink: 0;
+    margin: 0 0.15rem;
+    border-radius: 1px;
+}
+
+.stepper-step.completed + .stepper-divider,
+.stepper-divider.completed {
+    background: #86efac;
+}
+
+@media (max-width: 575.98px) {
+    .stepper-step .stepper-label {
+        display: none;
+    }
+    .checkout-stepper {
+        justify-content: center;
+        gap: 0;
+    }
+}
+
+/* -- Detalles de vuelo seleccionado (partial) -- */
+.checkout-flight-card {
+    border: 1px solid #dbe3ff;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 10px 22px rgba(17, 24, 39, 0.05);
+    padding: 1.15rem;
+    margin-bottom: 1.2rem;
+}
+
+.checkout-flight-card h5 {
+    font-weight: 800;
+    color: #1e3f90;
+    margin-bottom: 0.85rem;
+    font-size: 1.05rem;
+}
+
+.checkout-flight-leg {
+    border: 1px solid #e2e9f8;
+    border-radius: 12px;
+    padding: 1rem;
+    background: linear-gradient(180deg, #fbfdff 0%, #f5f8ff 100%);
+    height: 100%;
+}
+
+.checkout-flight-leg .leg-badge {
+    display: inline-block;
+    background: #4563e5;
+    color: #fff;
+    font-weight: 800;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.checkout-flight-leg .leg-zone {
+    display: inline-block;
+    background: #f0f4ff;
+    color: #3d5eb5;
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+    border: 1px solid #dbe3ff;
+}
+
+.checkout-flight-leg .leg-route {
+    font-weight: 700;
+    color: #1f2d45;
+    font-size: 1rem;
+    margin: 0.55rem 0 0.35rem;
+}
+
+.checkout-flight-leg .leg-detail {
+    font-size: 0.82rem;
+    color: #5b6f94;
+    margin-bottom: 0.2rem;
+}
+
+.checkout-flight-leg .leg-detail i {
+    color: #4563e5;
+    margin-right: 0.3rem;
+    font-size: 0.78rem;
+}
+
+.checkout-flight-leg .leg-baggage-title {
+    font-weight: 700;
+    font-size: 0.82rem;
+    color: #1e3f90;
+    margin-bottom: 0.3rem;
+}
+
+.checkout-flight-leg .leg-baggage-list {
+    padding-left: 1rem;
+    margin-bottom: 0;
+    font-size: 0.8rem;
+    color: #5b6f94;
+}
+
+.checkout-flight-leg .leg-baggage-list li {
+    margin-bottom: 0.15rem;
+}
+
+/* -- Pagina de compra completada -- */
+.success-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #d1fae5 0%, #bbf7d0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    box-shadow: 0 8px 24px rgba(21, 128, 61, 0.15);
+}
+
+.success-icon i {
+    font-size: 2rem;
+    color: #15803d;
+}
+
+.localizador-box {
+    border: 2px dashed #4563e5;
+    border-radius: 14px;
+    background: linear-gradient(180deg, #f8fbff 0%, #edf3ff 100%);
+    padding: 1.2rem;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.localizador-box .loc-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: #5b6f94;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.3rem;
+}
+
+.localizador-box .loc-code {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #1e3f90;
+    letter-spacing: 0.12em;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 0.5rem;
+}
+
+.btn-copiar-loc {
+    background: #fff;
+    border: 1px solid #4563e5;
+    color: #4563e5;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 0.35rem 1rem;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+}
+
+.btn-copiar-loc:hover {
+    background: #4563e5;
+    color: #fff;
+}
+
+.btn-copiar-loc.copiado {
+    background: #15803d;
+    border-color: #15803d;
+    color: #fff;
+}

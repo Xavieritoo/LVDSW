@@ -1,0 +1,117 @@
+.destino-hero {
+    background: linear-gradient(135deg, #f7faff 0%, #edf3ff 100%);
+    border: 1px solid #dbe3ff;
+    border-radius: 16px;
+    padding: 18px 20px;
+    box-shadow: 0 12px 30px rgba(69, 99, 229, 0.1);
+}
+
+.destino-hero h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #1f3f95;
+    margin-bottom: 8px;
+}
+
+.destino-layout {
+    align-items: flex-start;
+}
+
+.destino-card {
+    border: 1px solid #e1e8f8;
+    border-radius: 14px;
+    box-shadow: 0 10px 22px rgba(17, 24, 39, 0.06);
+}
+
+.destino-card .card-body {
+    padding: 22px;
+}
+
+.destino-card h2 {
+    font-size: 1.6rem;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #1d3f93;
+    margin-bottom: 14px;
+}
+
+.destino-card p {
+    color: #1f2d45;
+    line-height: 1.62;
+}
+
+.destino-card ul {
+    margin-bottom: 0;
+    padding-left: 22px;
+}
+
+.destino-card li {
+    margin-bottom: 8px;
+    color: #1f2d45;
+    line-height: 1.5;
+}
+
+.destino-subtitulo {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    color: #244586;
+}
+
+.destino-toc {
+    position: sticky;
+    top: 16px;
+    border: 1px solid #dce5f8;
+    border-radius: 14px;
+    box-shadow: 0 10px 22px rgba(17, 24, 39, 0.06);
+}
+
+.destino-toc .card-body {
+    padding: 18px;
+}
+
+.destino-toc h4 {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    font-weight: 800;
+    color: #1f3f95;
+    margin-bottom: 14px;
+}
+
+.destino-toc a {
+    display: block;
+    text-decoration: none;
+    color: #2d4a8a;
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin-bottom: 8px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+}
+
+.destino-toc a:hover {
+    color: #213f81;
+    background-color: #f4f8ff;
+    border-color: #d6e1fa;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 991px) {
+    .destino-hero h1 {
+        font-size: 1.7rem;
+    }
+
+    .destino-toc {
+        position: static;
+    }
+
+    .destino-card h2 {
+        font-size: 1.35rem;
+    }
+}

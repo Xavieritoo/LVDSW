@@ -1,0 +1,99 @@
+.passengers-header {
+    border: 1px solid #dbe3ff;
+    border-radius: 18px;
+    background: linear-gradient(135deg, #f7faff 0%, #edf3ff 100%);
+    box-shadow: 0 12px 30px rgba(69, 99, 229, 0.1);
+    padding: 1.2rem;
+}
+
+.passengers-header h2 {
+    color: #1e3f90;
+    font-weight: 800;
+}
+
+.passenger-card {
+    border-radius: 14px;
+    border: 1px solid #e3eaf8;
+    background: #fff;
+    box-shadow: 0 10px 22px rgba(17, 24, 39, 0.05);
+    padding: 1rem;
+    margin-bottom: 0.9rem;
+}
+
+.passenger-card h6 {
+    font-weight: 800;
+    color: #1d3f93;
+    margin-bottom: 0.78rem;
+}
+
+.field-label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #365493;
+    margin-bottom: 0.34rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.form-control {
+    border: 1px solid #d5dff3;
+    border-radius: 10px;
+    min-height: 44px;
+    padding: 0.55rem 0.75rem;
+    color: #1f2d45;
+}
+
+.form-control:focus {
+    border-color: #4563e5;
+    box-shadow: 0 0 0 0.2rem rgba(69, 99, 229, 0.15);
+}
+
+.section-title {
+    margin-top: 1.4rem;
+    margin-bottom: 0.85rem;
+    color: #1e3f90;
+    font-weight: 800;
+}
+
+.summary-badge {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid #d4e0ff;
+    border-radius: 999px;
+    color: #2b458c;
+    padding: 0.25rem 0.72rem;
+    font-size: 0.81rem;
+    font-weight: 700;
+    margin-right: 0.45rem;
+    margin-top: 0.45rem;
+}
+
+.btn-planit {
+    background: #4563e5;
+    border-color: #4563e5;
+    color: #fff;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.btn-planit:hover,
+.btn-planit:focus {
+    background: #3653d4;
+    border-color: #3653d4;
+    color: #fff;
+}
+
+.btn-back-step {
+    background: #ffffff;
+    border: 1px solid #9fb8ef;
+    color: #244a99;
+    font-weight: 700;
+    border-radius: 10px;
+}
+
+.btn-back-step:hover,
+.btn-back-step:focus {
+    background: #edf3ff;
+    border-color: #7e9ee4;
+    color: #1d3f84;
+}

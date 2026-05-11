@@ -1,0 +1,194 @@
+body {
+    font-family: DejaVu Sans, sans-serif;
+    color: #1f2937;
+    background: #f3f6ff;
+    margin: 0;
+    padding: 20px 0;
+}
+
+.page {
+    padding: 16px 24px;
+    page-break-after: always;
+}
+
+.page:last-child {
+    page-break-after: auto;
+}
+
+.ticket {
+    width: 100%;
+    border: 1px solid #cfd8ff;
+    border-radius: 14px;
+    border-collapse: separate;
+    border-spacing: 0;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.ticket-main,
+.ticket-stub {
+    vertical-align: top;
+}
+
+.ticket-main {
+    width: 74%;
+    padding: 16px 18px;
+}
+
+.ticket-stub {
+    width: 26%;
+    padding: 16px 14px;
+    background: #f7f9ff;
+    border-left: 2px dashed #b8c6ff;
+}
+
+.ticket-top {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 14px;
+}
+
+.brand {
+    font-size: 24px;
+    font-weight: 800;
+    color: #2f56df;
+    letter-spacing: 0.03em;
+}
+
+.sub {
+    margin-top: 3px;
+    font-size: 11px;
+    color: #667085;
+}
+
+.label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #6b7280;
+    letter-spacing: 0.04em;
+    margin-bottom: 3px;
+}
+
+.value {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.route-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 12px;
+    border: 1px solid #dfe6ff;
+    border-radius: 10px;
+}
+
+.route-table td {
+    padding: 12px 10px;
+    vertical-align: middle;
+}
+
+.airport-code {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1e3a8a;
+    line-height: 1;
+}
+
+.airport-city {
+    margin-top: 2px;
+    font-size: 11px;
+    color: #6b7280;
+}
+
+.route-arrow {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: #4563e5;
+    width: 60px;
+}
+
+.details {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.details td {
+    width: 50%;
+    padding: 8px 6px;
+    vertical-align: top;
+    border-bottom: 1px solid #eef2ff;
+}
+
+.details tr:last-child td {
+    border-bottom: none;
+}
+
+.seat-box {
+    border: 1px solid #c9d6ff;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.seat-code {
+    font-size: 24px;
+    line-height: 1;
+    font-weight: 800;
+    color: #1d4ed8;
+    margin-top: 4px;
+}
+
+.stub-grid {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 8px;
+}
+
+.stub-grid td {
+    padding: 6px 0;
+    border-bottom: 1px solid #e6ebff;
+    vertical-align: top;
+}
+
+.stub-grid tr:last-child td {
+    border-bottom: none;
+}
+
+.mini {
+    font-size: 10px;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+.mini-val {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1f2937;
+    margin-top: 2px;
+}
+
+.code-box {
+    margin-top: 10px;
+    padding: 8px;
+    border: 1px dashed #9fb2ff;
+    border-radius: 8px;
+    background: #fff;
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: #2f56df;
+}
+
+.notice {
+    margin-top: 14px;
+    padding: 10px;
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    font-size: 11px;
+    line-height: 1.45;
+}

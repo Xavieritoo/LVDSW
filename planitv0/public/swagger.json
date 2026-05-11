@@ -1,0 +1,589 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Planit API",
+    "description": "API REST documentada con JWT para autenticación de clientes de Planit.",
+    "version": "1.1.0"
+  },
+  "servers": [
+    {
+      "url": "http://planitv1.test",
+      "description": "Servidor de desarrollo"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Autenticación"
+    },
+    {
+      "name": "Perfil"
+    },
+    {
+      "name": "Vuelos"
+    },
+    {
+      "name": "Reservas"
+    }
+  ],
+  "paths": {
+    "/api/login": {
+      "post": {
+        "summary": "Iniciar sesión y obtener JWT",
+        "tags": [
+          "Autenticación"
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "ana@planit.local"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "ana@planit.local",
+                    "description": "Alias opcional de email para facilitar integración."
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "Usuario123"
+                  }
+                },
+                "required": [
+                  "password"
+                ]
+              },
+              "examples": {
+                "login_email": {
+                  "value": {
+                    "email": "ana@planit.local",
+                    "password": "Usuario123"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login correcto",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LoginOk"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Credenciales inválidas",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMessage"
+                },
+                "example": {
+                  "message": "Credenciales invalidas."
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Cuenta desactivada o no verificada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMessage"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Datos de acceso no válidos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationError"
+                }
+              }
+            }
+          },
+          "423": {
+            "description": "Cuenta temporalmente bloqueada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMessage"
+                },
+                "example": {
+                  "message": "Cuenta temporalmente bloqueada."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/perfil": {
+      "get": {
+        "summary": "Obtener perfil autenticado",
+        "tags": [
+          "Perfil"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Perfil del usuario autenticado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProfileResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          }
+        }
+      }
+    },
+    "/api/logout": {
+      "post": {
+        "summary": "Cerrar sesión del cliente",
+        "description": "En JWT stateless el servidor no invalida el token; el cliente debe eliminarlo localmente.",
+        "tags": [
+          "Autenticación"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Logout informado correctamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMessage"
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/vuelos": {
+      "get": {
+        "summary": "Listar rutas de vuelos disponibles",
+        "tags": [
+          "Vuelos"
+        ],
+        "responses": {
+          "200": {
+            "description": "Listado de rutas/planes disponibles",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Vuelo"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "example": 3
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reservas": {
+      "get": {
+        "summary": "Listar reservas del usuario autenticado",
+        "tags": [
+          "Reservas"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "estado",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "confirmada",
+                "datos_pendientes",
+                "completada",
+                "cancelada_usuario",
+                "cancelada_aerolinea"
+              ]
+            },
+            "description": "Filtro opcional por estado de reserva"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reservas del usuario",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Reserva"
+                      }
+                    },
+                    "meta": {
+                      "type": "object",
+                      "properties": {
+                        "count": {
+                          "type": "integer",
+                          "example": 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "$ref": "#/components/responses/Forbidden"
+          },
+          "422": {
+            "description": "Filtro no válido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reservas/{id}": {
+      "get": {
+        "summary": "Detalle de una reserva del usuario",
+        "tags": [
+          "Reservas"
+        ],
+        "security": [
+          {
+            "BearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Detalle de reserva",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "$ref": "#/components/schemas/Reserva"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "$ref": "#/components/responses/Unauthorized"
+          },
+          "403": {
+            "description": "Reserva de otro usuario",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMessage"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Reserva no encontrada",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApiMessage"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
+    "responses": {
+      "Unauthorized": {
+        "description": "Token ausente, expirado o inválido",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            },
+            "examples": {
+              "missing": {
+                "value": {
+                  "error": "Token requerido."
+                }
+              },
+              "expired": {
+                "value": {
+                  "error": "Token expirado."
+                }
+              },
+              "invalid": {
+                "value": {
+                  "error": "Token invalido."
+                }
+              }
+            }
+          }
+        }
+      },
+      "Forbidden": {
+        "description": "Acceso denegado por estado de cuenta",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ApiError"
+            },
+            "example": {
+              "error": "Cuenta desactivada."
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "ApiError": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "string"
+          }
+        }
+      },
+      "ApiMessage": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          }
+        }
+      },
+      "ValidationError": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Datos de acceso no validos."
+          },
+          "errors": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      },
+      "AuthUser": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "nombre": {
+            "type": "string"
+          },
+          "apellidos": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "rol_id": {
+            "type": "integer"
+          },
+          "esta_verificado": {
+            "type": "boolean"
+          },
+          "esta_activo": {
+            "type": "boolean"
+          }
+        }
+      },
+      "LoginOk": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "Login correcto."
+          },
+          "token": {
+            "type": "string",
+            "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+          },
+          "token_type": {
+            "type": "string",
+            "example": "Bearer"
+          },
+          "expires_in": {
+            "type": "integer",
+            "example": 3600
+          },
+          "user": {
+            "$ref": "#/components/schemas/AuthUser"
+          }
+        }
+      },
+      "ProfileResponse": {
+        "type": "object",
+        "properties": {
+          "user": {
+            "$ref": "#/components/schemas/AuthUser"
+          }
+        }
+      },
+      "Vuelo": {
+        "type": "object",
+        "properties": {
+          "origen": {
+            "type": "string",
+            "example": "Madrid"
+          },
+          "destino": {
+            "type": "string",
+            "example": "Paris"
+          },
+          "plan_tarifa": {
+            "type": "string",
+            "example": "planit_easy"
+          }
+        }
+      },
+      "Reserva": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "localizador": {
+            "type": "string"
+          },
+          "origen": {
+            "type": "string"
+          },
+          "destino": {
+            "type": "string"
+          },
+          "fecha_salida": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "fecha_llegada": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "estado": {
+            "type": "string"
+          },
+          "plan_tarifa": {
+            "type": "string"
+          },
+          "checkin_estado": {
+            "type": "string"
+          },
+          "tarjetas_emitidas": {
+            "type": "boolean"
+          },
+          "checkin_disponible_ahora": {
+            "type": "boolean"
+          },
+          "pasajeros": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "integer"
+                },
+                "nombre": {
+                  "type": "string"
+                },
+                "apellidos": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

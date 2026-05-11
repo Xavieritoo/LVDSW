@@ -1,0 +1,317 @@
+.checkin-shell {
+    --ck-primary: #4563e5;
+    --ck-primary-soft: #f5f8ff;
+    --ck-primary-soft-2: #e8eeff;
+    --ck-border: #e8ebf3;
+    --ck-surface: #ffffff;
+    --ck-text: #1f2937;
+}
+
+.checkin-shell {
+    color: var(--ck-text);
+}
+
+.checkin-hero {
+    background: linear-gradient(135deg, #f8faff 0%, #eef3ff 100%);
+    border: 1px solid #dbe3ff;
+    border-radius: 16px;
+    padding: 1rem 1.1rem;
+    box-shadow: 0 10px 28px rgba(69, 99, 229, 0.08);
+}
+
+.checkin-route-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.checkin-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #dbe3ff;
+    background: #fff;
+    color: #2f3f92;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+}
+
+#form-checkin {
+    background: var(--ck-surface);
+    border: 1px solid var(--ck-border);
+    border-radius: 16px;
+    padding: 1rem;
+    box-shadow: 0 10px 28px rgba(17, 24, 39, 0.06);
+}
+
+.wizard-steps {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.wizard-step {
+    border: 1px solid #dbe3ff;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #4563e5;
+    background: #f5f8ff;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.wizard-step.activo {
+    background: #4563e5;
+    color: #fff;
+    border-color: #4563e5;
+    box-shadow: 0 8px 18px rgba(69, 99, 229, 0.28);
+}
+
+.wizard-step.completado {
+    background: #ecfdf3;
+    color: #166534;
+    border-color: #86efac;
+}
+
+.wizard-panel {
+    display: none;
+}
+
+.wizard-panel.activo {
+    display: block;
+}
+
+.pasajero-card {
+    border: 1px solid #e8ebf3;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 6px 18px rgba(17, 24, 39, 0.04);
+}
+
+.mapa-pasajero {
+    border-radius: 14px;
+    box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+}
+
+.selector-pasajero-btn {
+    border-width: 1px;
+    border-color: #c8d5ff;
+    transition: all 0.18s ease;
+}
+
+.selector-pasajero-btn:hover {
+    transform: translateY(-1px);
+}
+
+.selector-pasajero-btn.activo {
+    background: #e8eeff;
+    border-color: #4563e5;
+    color: #1f3db6;
+    box-shadow: inset 0 0 0 1px #a7bbff;
+}
+
+.asiento-avion-wrapper {
+    overflow-y: auto;
+    max-height: 460px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 12px 14px;
+    background: linear-gradient(180deg, #fbfcff 0%, #f4f7ff 100%);
+    display: flex;
+    justify-content: center;
+}
+
+.asiento-grid {
+    display: grid;
+    grid-template-columns: 22px repeat(3, 34px) 18px repeat(3, 34px);
+    gap: 4px;
+    width: fit-content;
+}
+
+.asiento-col-header {
+    text-align: center;
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #9ca3af;
+    padding-bottom: 2px;
+    letter-spacing: 0.05em;
+}
+
+.asiento-row-num {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.64rem;
+    color: #bdbdbd;
+    padding-right: 3px;
+    line-height: 1;
+}
+
+.asiento-btn {
+    width: 34px;
+    height: 30px;
+    font-size: 0.68rem;
+    font-weight: 600;
+    border-radius: 5px;
+    border: 2px solid #d1d5db;
+    background: #f9fafb;
+    color: #374151;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.15s, border-color 0.15s, color 0.15s;
+    user-select: none;
+    padding: 0;
+    line-height: 1;
+    box-shadow: 0 1px 0 rgba(17, 24, 39, 0.04);
+}
+
+.asiento-btn:hover:not(.ocupado) {
+    background: #eff6ff;
+    border-color: #5170ff;
+    color: #5170ff;
+}
+
+.asiento-btn.seleccionado {
+    background: #5170ff;
+    border-color: #5170ff;
+    color: #fff;
+}
+
+.asiento-btn.ocupado {
+    background: #fee2e2;
+    border-color: #fca5a5;
+    color: #991b1b;
+    cursor: not-allowed;
+}
+
+.wizard-actions {
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.wizard-actions .btn {
+    min-width: 130px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.wizard-panel .alert {
+    border-radius: 12px;
+}
+
+.table-responsive {
+    border: 1px solid #e8ebf3;
+    border-radius: 10px;
+}
+
+#resumen-pasajeros ul {
+    padding-left: 1rem;
+}
+
+.asiento-leyenda {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.asiento-leyenda-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.78rem;
+    color: #4b5563;
+}
+
+.asiento-leyenda-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+}
+
+.asiento-leyenda-dot.libre {
+    background: #f9fafb;
+    border-color: #d1d5db;
+}
+
+.asiento-leyenda-dot.seleccionado {
+    background: #5170ff;
+    border-color: #5170ff;
+}
+
+.asiento-leyenda-dot.ocupado {
+    background: #fee2e2;
+    border-color: #fca5a5;
+}
+
+.asiento-leyenda-dot.tipo-planit_plus {
+    background: #fef3c7;
+    border-color: #fbbf24;
+}
+
+.asiento-leyenda-dot.tipo-planit_one {
+    background: #dbeafe;
+    border-color: #60a5fa;
+}
+
+.asiento-leyenda-dot.tipo-planit_space {
+    background: #d1fae5;
+    border-color: #34d399;
+}
+
+/* Seat type border tints (libre only — override default border) */
+.asiento-btn.libre.tipo-planit_plus {
+    border-color: #fbbf24;
+    background: #fffbeb;
+}
+
+.asiento-btn.libre.tipo-planit_one {
+    border-color: #60a5fa;
+    background: #eff6ff;
+}
+
+.asiento-btn.libre.tipo-planit_space {
+    border-color: #34d399;
+    background: #ecfdf5;
+}
+
+@media (max-width: 991.98px) {
+    .wizard-steps {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 4px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .wizard-step {
+        min-width: 140px;
+        scroll-snap-align: start;
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 575.98px) {
+    #form-checkin {
+        padding: 0.8rem;
+        border-radius: 14px;
+    }
+
+    .checkin-hero {
+        padding: 0.9rem;
+    }
+
+    .wizard-actions .btn {
+        min-width: 112px;
+    }
+
+    .asiento-avion-wrapper {
+        max-height: 390px;
+    }
+}
